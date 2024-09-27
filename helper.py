@@ -176,41 +176,32 @@ async def download_video(url,cmd, name):   #Bot Created by @NtrRazYt
     except FileNotFoundError as exc:   #Bot Created by @NtrRazYt
         return os.path.isfile.splitext[0] + "." + "mp4"   #Bot Created by @NtrRazYt
    #Bot Created by @NtrRazYt
-async def send_doc(bot: Client, m: Message,cc,ka,cc1,prog,count,name):   #Bot Created by @NtrRazYt
-    reply = await m.reply_text(f"Uploading - `{name}`")   #Bot Created by @NtrRazYt
-    time.sleep(1)   #Bot Created by @NtrRazYt
-    start_time = time.time()   #Bot Created by @NtrRazYt
-    await m.reply_document(ka,caption=cc1)   #Bot Created by @NtrRazYt
-    count+=1   #Bot Created by @NtrRazYt
-    await reply.delete (True)   #Bot Created by @NtrRazYt
-    time.sleep(1)   #Bot Created by @NtrRazYt
-    os.remove(ka)   #Bot Created by @NtrRazYt
-    time.sleep(3)    #Bot Created by @NtrRazYt
+
    #Bot Created by @NtrRazYt
-async def send_vid(bot: Client, m: Message,cc,filename,thumb,name,prog):   #Bot Created by @NtrRazYt
-       #Bot Created by @NtrRazYt
-    subprocess.run(f'ffmpeg -i "{filename}" -ss 00:01:00 -vframes 1 "{filename}.jpg"', shell=True)   #Bot Created by @NtrRazYt
-    await prog.delete (True)   #Bot Created by @NtrRazYt
-    reply = await m.reply_text(f"**Uploading ...** - `{name}`")   #Bot Created by @NtrRazYt
-    try:   #Bot Created by @NtrRazYt
-        if thumb == "no":   #Bot Created by @NtrRazYt
-            thumbnail = f"{filename}.jpg"   #Bot Created by @NtrRazYt
-        else:   #Bot Created by @NtrRazYt
-            thumbnail = thumb   #Bot Created by @NtrRazYt
-    except Exception as e:   #Bot Created by @NtrRazYt
-        await m.reply_text(str(e))   #Bot Created by @NtrRazYt
-   #Bot Created by @NtrRazYt
-    dur = int(duration(filename))   #Bot Created by @NtrRazYt
-   #Bot Created by @NtrRazYt
-    start_time = time.time()   #Bot Created by @NtrRazYt
-   #Bot Created by @NtrRazYt
-    try:   #Bot Created by @NtrRazYt
-        await m.reply_video(filename,caption=cc, supports_streaming=True,height=720,width=1280,thumb=thumbnail,duration=dur, progress=progress_bar,progress_args=(reply,start_time))   #Bot Created by @NtrRazYt
-    except Exception:   #Bot Created by @NtrRazYt
-        await m.reply_document(filename,caption=cc, progress=progress_bar,progress_args=(reply,start_time))   #Bot Created by @NtrRazYt
-    os.remove(filename)   #Bot Created by @NtrRazYt
-   #Bot Created by @NtrRazYt
-    os.remove(f"{filename}.jpg")   #Bot Created by @NtrRazYt
-    await reply.delete (True)   #Bot Created by @NtrRazYt
+async def send_vid(bot: Client, m: Message, cc, filename, thumb, name,thumb2):
+    reply = await m.reply_text(f"**⚡️ Starting Uploading ...** - `{name}`")
+    try:
+        if thumb != "no":
+            subprocess.run(['wget', thumb2, '-O', 'thumb1.jpg'], check=True)  # Fixing this line
+            thumbnail = "thumb1.jpg"
+        else:
+            subprocess.run(f'ffmpeg -i "{filename}" -ss 00:00:12 -vframes 1 "thumb1.jpg"', shell=True)
+            thumbnail = "thumb1.jpg"
+            
+    except Exception as e:
+        await m.reply_text(str(e))
+
+    dur = int(duration(filename))
+
+    start_time = time.time()
+
+    try:
+        await m.reply_video(filename, caption=cc, supports_streaming=True, height=720, width=1280, thumb=thumbnail, duration=dur, progress=progress_bar, progress_args=(reply, start_time))
+    except Exception:
+        await m.reply_document(filename, caption=cc, thumb=thumbnail, progress=progress_bar, progress_args=(reply, start_time))
+
+    os.remove(filename)
+    os.remove(thumbnail)
+    await reply.delete(True)   #Bot Created by @NtrRazYt
        #Bot Created by @NtrRazYt
    #Bot Created by @NtrRazYt
