@@ -30,14 +30,14 @@ import datetime
 import aiohttp
 
 bot = Client("bot",
-             bot_token= "6556042495:AAEYgNL0EDhqpA7P6SLJ-dzFath0q7gzttA", 
+             bot_token= "7106709057:AAEDzg7JSl0lTC-Nc5kcyKen6gYWLiywMdM", 
              #bot_token= os.environ.get("BOT_TOKEN"),
-             api_id= 28590119,
-             api_hash= "2494557bf21e6c5152f26070aa1a97c7")
-auth_users = [1923922961,6200710535,5753557653,6404553499]
+             api_id= 23713783,
+             api_hash= "2daa157943cb2d76d149c4de0b036a99")
+auth_users = [5487643307]
 #romeo  -1923922961 
 
-owner_id = 1923922961
+owner_id = 5487643307
 # Extras 
 failed_links = []  # List to store failed links
 fail_cap =f"**➜ This file Contain Failed Downloads while Downloding \n You Can Retry them one more time **"
@@ -170,44 +170,7 @@ async def run_bot(bot: Client, m: Message):
         os.remove(txt_file)
 
 
-
-def is_subscription_expired(user_id):
-    with open("Subscription_data.txt", "r") as file:
-        for line in file:
-            data = line.strip().split(", ")
-            if int(data[0]) == user_id:
-                end_date = datetime.datetime.strptime(data[2], "%d-%m-%Y") #%Y-%m-%d
-                today = datetime.datetime.today()
-                return end_date < today
-    return True  # User not found in Subscription_data.txt or no subscription data found
-
-
-
 # Define the myplan command handler
-@bot.on_message(filters.command("myplan"))
-async def myplan_command_handler(bot, message):
-    user_id = message.from_user.id
-    with open("Subscription_data.txt", "r") as file:
-        for line in file:
-            data = line.strip().split(", ")
-            if int(data[0]) == user_id:
-                subscription_start = data[1]
-                expiration_date = data[2]
-                today = datetime.datetime.today()
-                if today > datetime.datetime.strptime(expiration_date, "%d-%m-%Y"):
-                    plan = "EXPIRED "
-                    response_text = f"**✨ User ID: {user_id}\n📊 PLAN STAT : {plan}\n\n🔰 Activated on : {subscription_start}\n🧨 Expiration Date: {expiration_date} \n\n 🫰🏼 ACTIVATE YOUR PLAN NOW ! \n⚡️ TO ACTIVATE MESSAGE : @ITS_NOT_ROMEO :D **"
-                else:
-                    plan = "ALIVE!"  
-                    response_text = f"**✨ User ID: {user_id}\n📊 PLAN STAT : {plan}\n🔰 Activated on : {subscription_start}\n🧨 Expiration Date: {expiration_date}**"
-                await message.reply(response_text)
-                return
-    if user_id in auth_users:
-        await message.reply("YOU HAVE LIFE TIME ACCESS :) ")
-    else:
-        await message.reply("No subscription data found for you.")
-
-
 @bot.on_message(filters.command("stop"))
 async def restart_handler(_, m):
     
@@ -457,7 +420,7 @@ async def account_login(bot: Client, m: Message):
                     try:
                         ka = await helper.download(url, name)
                         copy = await bot.send_document(chat_id=m.chat.id,document=ka, caption=cc1)
-                        await copy.copy(chat_id = -1002097681261)
+                        await copy.copy(chat_id = -1002169361625)
                         count+=1
                         os.remove(ka)
                         time.sleep(1)
