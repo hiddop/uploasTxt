@@ -33,7 +33,6 @@ humanize
 cryptg
 wget
 mediainfo
-pycurl
 aria2
 umongo==3.1.0
 speedtest-cli
