@@ -1,10 +1,4 @@
-frontend:
-    path: ./
-    publish: ""
-    scripts:
-        build: npm run build
-        deploy: npm install
-    subdomain: uploastxts
-name: uploastxts
-region: us-east-1
-yamlVersion: 2
+name: my-python-telegram-bot
+version: 1.0.0
+main: main.py
+docker: true
