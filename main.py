@@ -81,7 +81,7 @@ async def run_bot(bot: Client, m: Message):
         f.write('\n'.join(videos))
 
     # Send the text file as a reply
-    await m.reply_document(document=txt_file, caption="Here is your txt file.")
+    await m.reply_document(document=txt_file, caption="Le Gand me Dable BSDK 😡\nWords By - 𝗛𝗔𝗖𝗞𝗛𝗘𝗜𝗦𝗧")
     
     # Remove the local text file after sending it
     os.remove(txt_file)
