@@ -45,24 +45,45 @@ async def run_bot(bot: Client, m: Message):
     await input.delete(True)
     await editable.delete()
 
+    # Open and read the HTML file using BeautifulSoup
     with open(html_file, 'r') as f:
         soup = BeautifulSoup(f, 'html.parser')
-        tables = soup.find_all('table')
+        
+        # Extract teacher name from the title
+        teacher_name = soup.title.text.split('-')[-1].strip()
+        
+        # Find all rows
+        rows = soup.find_all('tr')
         videos = []
 
-        for table in tables:
-            rows = table.find_all('tr')
-            for row in rows:
-                cols = row.find_all('td')
-                name = cols[0].get_text().strip()
-                link = cols[1].find('a')['href']
-                videos.append(f'{name}:{link}')
+        for row in rows:
+            td_elements = row.find_all('td')
+            if len(td_elements) == 0:
+                continue
 
+            # Extract video title
+            title = td_elements[0].text.strip()
+
+            # Extract download and PDF links
+            download_button = row.find('button', class_='download-btn')
+            pdf_button = row.find('button', class_='pdf-btn')
+
+            download_link = download_button['onclick'].split("'")[1] if download_button else 'No download link'
+            pdf_link = pdf_button['onclick'].split("'")[1] if pdf_button else 'No PDF link'
+
+            # Append both download and PDF links with the teacher's name to the list
+            videos.append(f"{title} {teacher_name}: {download_link}")
+            videos.append(f"{title} {teacher_name}: {pdf_link}")
+
+    # Create a text file to save the extracted data
     txt_file = os.path.splitext(html_file)[0] + '.txt'
     with open(txt_file, 'w') as f:
         f.write('\n'.join(videos))
 
+    # Send the text file as a reply
     await m.reply_document(document=txt_file, caption="Here is your txt file.")
+    
+    # Remove the local text file after sending it
     os.remove(txt_file)
                                                         
                                                         
