@@ -68,8 +68,14 @@ async def run_bot(bot: Client, m: Message):
             download_button = row.find('button', class_='download-btn')
             pdf_button = row.find('button', class_='pdf-btn')
 
-            download_link = download_button['onclick'].split("'")[1] if download_button else 'No download link'
-            pdf_link = pdf_button['onclick'].split("'")[1] if pdf_button else 'No PDF link'
+            download_link = download_button['onclick'].split("'")[1] if download_button else 'NONE'
+            pdf_link = pdf_button['onclick'].split("'")[1] if pdf_button else 'NONE'
+
+            # Check if the link contains 'NONE' and replace it with 'https://t.me/HIDEUC'
+            if 'NONE' in download_link:
+                download_link = 'https://i.ibb.co/4Ng0nk7/6717abd0.jpg'
+            if 'NONE' in pdf_link:
+                pdf_link = 'https://i.ibb.co/4Ng0nk7/6717abd0.jpg'
 
             # Append both download and PDF links with the teacher's name to the list
             videos.append(f"{title} {teacher_name}: {download_link}")
@@ -85,6 +91,7 @@ async def run_bot(bot: Client, m: Message):
     
     # Remove the local text file after sending it
     os.remove(txt_file)
+
                                                         
                                                         
                                                         
