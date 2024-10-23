@@ -146,6 +146,16 @@ async def account_login(bot: Client, m: Message):
     else:
         OP = raw_text15
 
+    await editable.edit("**If you want to Download BW Videos then send your BW LOGIN TOKEN to download or send `NO_BW` for not downloading BW\n\nNOTE:- You can send your any working token no need specific token in which batch purchase only need token\nI don't need that specific token in which have TXT file batch 🥰\n\nCREDITS - 𝗛𝗔𝗖𝗞𝗛𝗘𝗜𝗦𝗧**")                                                        
+    input20: Message = await bot.listen(editable.chat.id)                                                        
+    raw_text20 = input20.text                                                        
+    await input20.delete(True)                                                        
+    highlighter  = f"️ ⁪⁬⁮⁮⁮"
+    if raw_text20 == 'NO_BW':
+        NO_BW = highlighter 
+    else:
+        NO_BW = raw_text20
+
     await editable.edit("**Enter resolution**")                                                        
     input2: Message = await bot.listen(editable.chat.id)                                                        
     raw_text2 = input2.text                                                        
@@ -226,7 +236,7 @@ async def account_login(bot: Client, m: Message):
                                                         
             elif '/master.mpd' in url:                                                        
              id =  url.split("/")[-2]                                                        
-             url =  "https://d26g5bnklkwsh4.cloudfront.net/" + id + "/master.m3u8"                                                        
+             url =  "https://d26g5bnklkwsh4.cloudfront.net/" + id + "/master.m3u8&token=" + {NO_BW}                                                       
                                                         
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "@").replace("*", "").replace(".", "").replace("https", "").replace("http", "").replace("NONE", "https://t.me/HIDEUC").strip()                                                        
             name = f'{OP} {MR} {name1[:60]}'                                                        
