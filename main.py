@@ -32,9 +32,10 @@ bot = Client("bot",
              api_hash=os.environ.get("API_HASH"))
 
 OP_COMMAND = os.environ.get("COMMAND", "op")
+STOP_COMMAND = os.environ.get("STOP", "Stop")
                                                         
                                                         
-@bot.on_message(filters.command("Stop"))                                                        
+@bot.on_message(filters.command([STOP_COMMAND]))                                                        
 async def restart_handler(_, m):                                                        
     await m.reply_text("🚦**STOPPED**🚦", True)                                                        
     os.execl(sys.executable, sys.executable, *sys.argv)
