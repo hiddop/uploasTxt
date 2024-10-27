@@ -40,6 +40,7 @@ async def restart_handler(_, m):
     await m.reply_text("🚦**STOPPED**🚦", True)                                                        
     os.execl(sys.executable, sys.executable, *sys.argv)
 
+
 #Initialize a dictionary to store files and status per user
 user_files = {}
 
@@ -91,8 +92,15 @@ async def process_files(bot: Client, m: Message):
                 download_button = row.find('button', class_='download-btn')
                 pdf_button = row.find('button', class_='pdf-btn')
                 
-                download_link = download_button['onclick'].split("'")[1] if download_button else 'https://i.ibb.co/4Ng0nk7/6717abd0.jpg'
-                pdf_link = pdf_button['onclick'].split("'")[1] if pdf_button else 'https://i.ibb.co/4Ng0nk7/6717abd0.jpg'
+                # Get links and replace 'NONE' with a default image link
+                download_link = download_button['onclick'].split("'")[1] if download_button else 'NONE'
+                pdf_link = pdf_button['onclick'].split("'")[1] if pdf_button else 'NONE'
+
+                # Replace 'NONE' with image URL
+                if 'NONE' in download_link:
+                    download_link = 'https://i.ibb.co/4Ng0nk7/6717abd0.jpg'
+                if 'NONE' in pdf_link:
+                    pdf_link = 'https://i.ibb.co/4Ng0nk7/6717abd0.jpg'
 
                 # Append both download and PDF links with the teacher's name to the list
                 all_videos.append(f"{title} {teacher_name}: {download_link}")
@@ -102,7 +110,7 @@ async def process_files(bot: Client, m: Message):
         os.remove(html_file)
 
     # Create a merged text file to save all extracted data
-    merged_txt_file = 'merged_output.txt'
+    merged_txt_file = 'HACKHEIST_Merged.txt'
     with open(merged_txt_file, 'w', encoding='utf-8') as f:
         f.write('\n'.join(all_videos))
 
