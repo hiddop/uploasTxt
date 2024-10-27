@@ -282,7 +282,11 @@ async def account_login(bot: Client, m: Message):
                                                         
             elif '/master.mpd' in url:                                                        
              id =  url.split("/")[-2]                                                        
-             url =  f"https://pwapi-aaebd595f347.herokuapp.com/pw-dl/{id}/master.m3u8&token={NO_BW}"                                                       
+             url =  f"https://pwapi-aaebd595f347.herokuapp.com/pw-dl/{id}/master.m3u8&token={NO_BW}"
+
+            elif '/output.webm' in url:
+             url = url.replace('/output.webm', '/hls/master.m3u8')
+
                                                         
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "@").replace("*", "").replace(".", "").replace("https", "").replace("http", "").replace("NONE", "https://t.me/HIDEUC").strip()                                                        
             name = f'{OP} {MR} {name1[:60]}'                                                        
