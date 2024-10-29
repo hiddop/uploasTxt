@@ -39,6 +39,7 @@ async def automatic_download(bot: Client, m: Message):
             nameop = re.search(r'-n\s+(\S+)', m.text)
             raw_text2 = re.search(r'-r\s+(\S+)', m.text)
             thumb = re.search(r'-t\s+(\S+)', m.text)
+            
 
 
             # Set resolution format based on user input
@@ -90,8 +91,8 @@ async def automatic_download(bot: Client, m: Message):
                                                         
             try:                                                          
                                                                         
-                cc = f'**{name1} {MR}.mkv**\n\n**❃ 𝗕𝗮𝘁𝗰𝗵 » {b_name}**\n\n**♛ 𝔻𝕆𝕎ℕ𝕃𝕆𝔸𝔻𝔼𝔻 𝔹𝕐 ★ {MR}**\n**━━━━━━━✦✗✦━━━━━━━**\n**{WEB}**'
-                cc1 = f'**{name1} {MR}.pdf**\n\n**❃ 𝗕𝗮𝘁𝗰𝗵 » {b_name}**\n\n**♛ 𝔻𝕆𝕎ℕ𝕃𝕆𝔸𝔻𝔼𝔻 𝔹𝕐 ★ {MR}**\n**━━━━━━━✦✗✦━━━━━━━**\n**{WEB}**'
+                cc = f'**{name1}.mkv**\n\n**❃ 𝗕𝗮𝘁𝗰𝗵 » HACKHEIST**\n\n**♛ 𝔻𝕆𝕎ℕ𝕃𝕆𝔸𝔻𝔼𝔻 𝔹𝕐 ★**\n**━━━━━━━✦✗✦━━━━━━━**\n****'
+                cc1 = f'**{name1}.pdf**\n\n**❃ 𝗕𝗮𝘁𝗰𝗵 » HACKHEIST**\n\n**♛ 𝔻𝕆𝕎ℕ𝕃𝕆𝔸𝔻𝔼𝔻 𝔹𝕐 ★**\n**━━━━━━━✦✗✦━━━━━━━**\n****'
                 if "drive" in url:                                                        
                     try:                                                        
                         ka = await helper.download(url, name)                                                        
@@ -117,7 +118,7 @@ async def automatic_download(bot: Client, m: Message):
                         time.sleep(e.x)                                                        
                         continue                                                        
                 else:                                                        
-                    Show = f"**⥥ 📥 ＤＯＷＮＬＯＤＩＮＧ 📥 :-**\n\n**📝Name »** `{name}\n❄𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {raw_text2}`\n\n**Url :-** `Kya karega URL dekhke ☠️☠️`\n\n **Bot made by {MR} (Daddy)🧑🏻‍💻**"                                                        
+                    Show = f"**⥥ 📥 ＤＯＷＮＬＯＤＩＮＧ 📥 :-**\n\n**📝Name »** `{name}\n❄𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {raw_text2}`\n\n**Url :-** `Kya karega URL dekhke ☠️☠️`\n\n **Bot made by HACKHEIST (Daddy)🧑🏻‍💻**"                                                        
                     prog = await m.reply_text(Show)                                                        
                     res_file = await helper.download_video(url, cmd, name)                                                        
                     filename = res_file                                                        
@@ -128,7 +129,7 @@ async def automatic_download(bot: Client, m: Message):
                                                         
             except Exception as e:                                                        
                 await m.reply_text(                                                        
-                    f"**Failed to Download/Extract 😫**\n\n**Name** - {cc}\n**𝗟𝗜𝗡𝗞** - {url}\n\nSorry {MR} 🙏**"                                                        
+                    f"**Failed to Download/Extract 😫**\n\n**Name** - {cc}\n**𝗟𝗜𝗡𝗞** - {url}\n\nSorry HACKHEIST 🙏**"                                                        
                 )                                                        
                 continue                                                        
                                                         
