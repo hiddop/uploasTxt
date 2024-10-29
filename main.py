@@ -131,7 +131,7 @@ async def automatic_download(bot: Client, m: Message):
                 await m.reply_text(                                                        
                     f"**Failed to Download/Extract 😫**\n\n**Name** - {cc}\n**𝗟𝗜𝗡𝗞** - {url}\n\nSorry HACKHEIST 🙏**"                                                        
                 )                                                        
-                continue                                                        
+                                                                        
                                                         
     except Exception as e:                                                        
         await m.reply_text(e)                                                        
