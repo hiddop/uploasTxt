@@ -61,7 +61,7 @@ async def automatic_download(bot: Client, m: Message):
                                                          
                                                         
             if cmd_text[0].startswith("http"):
-            V = cmd_text[0]
+               V = cmd_text[0]
             
             # Apply transformations to the URL
             V = V.replace("file/d/", "uc?export=download&id=") \
