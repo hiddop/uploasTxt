@@ -103,7 +103,7 @@ async def automatic_download(bot: Client, m: Message):
                     except FloodWait as e:                                                        
                         await m.reply_text(str(e))                                                        
                         time.sleep(e.x)                                                        
-                        continue                                                        
+                                                                                
                                                                         
                 elif ".pdf" in url:                                                        
                     try:                                                        
@@ -116,7 +116,7 @@ async def automatic_download(bot: Client, m: Message):
                     except FloodWait as e:                                                        
                         await m.reply_text(str(e))                                                        
                         time.sleep(e.x)                                                        
-                        continue                                                        
+                                                                                
                 else:                                                        
                     Show = f"**⥥ 📥 ＤＯＷＮＬＯＤＩＮＧ 📥 :-**\n\n**📝Name »** `{name}\n❄𝐐𝐮𝐚𝐥𝐢𝐭𝐲 » {raw_text2}`\n\n**Url :-** `Kya karega URL dekhke ☠️☠️`\n\n **Bot made by HACKHEIST (Daddy)🧑🏻‍💻**"                                                        
                     prog = await m.reply_text(Show)                                                        
