@@ -60,7 +60,15 @@ async def automatic_download(bot: Client, m: Message):
                                                  
                                                          
                                                         
-            V = links[i][1].replace("file/d/","uc?export=download&id=").replace("www.youtube-nocookie.com/embed", "youtu.be").replace("?modestbranding=1", "").replace("/view?usp=sharing","") # .replace("mpd","m3u8")                                                        
+            if cmd_text[0].startswith("http"):
+            V = cmd_text[0]
+            
+            # Apply transformations to the URL
+            V = V.replace("file/d/", "uc?export=download&id=") \
+                 .replace("www.youtube-nocookie.com/embed", "youtu.be") \
+                 .replace("?modestbranding=1", "") \
+                 .replace("/view?usp=sharing", "")
+
             url = "https://" + V                                                        
                                                         
             if "visionias" in url:                                                        
