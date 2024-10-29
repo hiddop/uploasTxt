@@ -71,7 +71,7 @@ async def automatic_download(bot: Client, m: Message):
                  .replace("?modestbranding=1", "") \
                  .replace("/view?usp=sharing", "")
 
-            url = "https://" + V                                                        
+            url = V                                                        
                                                         
             if "visionias" in url:                                                        
                 async with ClientSession() as session:                                                        
