@@ -27,9 +27,9 @@ import datetime
 import aiohttp
                                                         
 bot = Client("bot",                                                        
-             bot_token=os.environ.get("BOT_TOKEN"),                                                        
-             api_id=int(os.environ.get("API_ID")),                                                        
-             api_hash=os.environ.get("API_HASH"))
+             bot_token=os.environ.get("BOT_TOKEN", "6951998019:AAGWL0XmbHDaJ8WJKn_BGSefdA0Ek9s4FN4"),                                                        
+             api_id=int(os.environ.get("API_ID", "23713783")),                                                        
+             api_hash=os.environ.get("API_HASH", "2daa157943cb2d76d149c4de0b036a99"))
 
 OP_COMMAND = os.environ.get("COMMAND", "op")
 STOP_COMMAND = os.environ.get("STOPING", "Stop")
