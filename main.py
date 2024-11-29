@@ -34,7 +34,7 @@ bot = Client(
 )
 
 DEFAULT_THUMBNAIL = "https://i.ibb.co/dPpqpdP/67178015.jpg"
-DEFAULT_RESOLUTION = "480"
+DEFAULT_RESOLUTION = "480p"
 
 @bot.on_message(filters.command("download"))
 async def download_command(bot: Client, message):
