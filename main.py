@@ -282,7 +282,7 @@ async def account_login(bot: Client, m: Message):
                                                         
             elif '/master.mpd' in url:                                                        
              id =  url.split("/")[-2]                                                        
-             url =  f"https://pwapi-aaebd595f347.herokuapp.com/pw-dl/{id}/master.m3u8&token={NO_BW}"
+             url =  f"https://madxpw.onrender.com/{id}/master.m3u8&token={NO_BW}"
 
             elif '/output.webm' in url:
              url = url.replace('/output.webm', '/hls/master.m3u8')
