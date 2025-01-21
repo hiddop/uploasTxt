@@ -12,4 +12,4 @@ RUN apk add --no-cache gcc libffi-dev musl-dev ffmpeg aria2 && pip install --no-
 
 
 
-CMD gunicorn app:app & python3 main.py
+CMD python3 main.py
